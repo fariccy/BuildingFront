@@ -16,8 +16,8 @@ const Feedback = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const feedbackResponse = await axios.get('http://localhost:8080/api/feedback/all');
-                const buildingResponse = await axios.get('http://localhost:8080/api/building/all');
+                const feedbackResponse = await axios.get('https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/feedback/all');
+                const buildingResponse = await axios.get('https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/building/all');
                 
                 // Filter feedbacks based on constructorId
                 const filteredFeedbacks = feedbackResponse.data.filter(feedback => feedback.constructor.id === constructorId);
@@ -36,7 +36,7 @@ const Feedback = () => {
 
     const handleAddFeedback = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/api/feedbacks/add-feedback', newFeedback);
+            const response = await axios.post('https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/feedbacks/add-feedback', newFeedback);
             setFeedbacks([...feedbacks, response.data]);
             setNewFeedback({ comments: '', buildingId: '' });
         } catch (err) {
@@ -46,7 +46,7 @@ const Feedback = () => {
 
     const handleUpdateFeedback = async () => {
         try {
-            const response = await axios.put(`http://localhost:8080/api/feedbacks/${editingFeedback.id}`, newFeedback);
+            const response = await axios.put(`https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/feedbacks/${editingFeedback.id}`, newFeedback);
             setFeedbacks(feedbacks.map(feedback => (feedback.id === editingFeedback.id ? response.data : feedback)));
             setNewFeedback({ comments: '', buildingId: '' });
             setEditingFeedback(null);
@@ -59,7 +59,7 @@ const Feedback = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this feedback?");
         if (confirmDelete) {
             try {
-                await axios.delete(`http://localhost:8080/api/feedback/delete/${id}`);
+                await axios.delete(`https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/feedback/delete/${id}`);
                 setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
             } catch (err) {
                 setError(err.message);

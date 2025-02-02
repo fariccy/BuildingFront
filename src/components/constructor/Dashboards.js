@@ -18,7 +18,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/building/all"
+          "https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/building/all"
         );
         // Filter buildings based on customer id
         const filteredBuildings = response.data.filter(item => item.customer.id === custId);
@@ -41,8 +41,8 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const feedbackResponse = await axios.get('http://localhost:8080/api/feedback/all');
-            const buildingResponse = await axios.get('http://localhost:8080/api/building/all');
+            const feedbackResponse = await axios.get('https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/feedback/all');
+            const buildingResponse = await axios.get('https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/building/all');
             
             // Filter feedbacks based on constructorId
             const filteredFeedbacks = feedbackResponse.data.filter(feedback => feedback.building.customer.id === constructorId);

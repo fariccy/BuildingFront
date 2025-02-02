@@ -15,7 +15,7 @@ const ViewBuilding = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/building/all");
+        const response = await axios.get("https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/building/all");
         setBuildingInfo(response.data);
       } catch (err) {
         setError(err.message);

@@ -28,7 +28,7 @@ const AddComment = () => {
       // Log the commentData to see what is being sent
       console.log("Submitting comment data:", commentData);
       
-      const response = await axios.post("http://localhost:8080/api/feedback/add", commentData);
+      const response = await axios.post("https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/feedback/add", commentData);
       alert("Comment added successfully.");
       navigate("/feedback"); // Redirect to the view buildings page
     } catch (err) {

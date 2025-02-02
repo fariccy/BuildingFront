@@ -17,7 +17,7 @@ const ManageBuilding = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/building/all"
+          "https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/building/all"
         );
         // Filter buildings based on customer id
         const filteredBuildings = response.data.filter(item => item.customer.id === custId);
@@ -37,7 +37,7 @@ const ManageBuilding = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this building?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:8080/api/building/delete/${id}`);
+        await axios.delete(`https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/building/delete/${id}`);
         // Remove the deleted building from the state
         setBuildingInfo(buildingInfo.filter(item => item.id !== id));
         alert("Building deleted successfully.");

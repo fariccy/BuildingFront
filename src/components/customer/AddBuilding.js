@@ -26,7 +26,7 @@ const AddBuilding = () => {
 
         try {
             // Send a POST request to the API
-            const response = await axios.post('http://localhost:8080/api/building/add', formData, {
+            const response = await axios.post('https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/building/add', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data' // Set the content type to multipart/form-data
                 }
