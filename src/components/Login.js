@@ -13,7 +13,7 @@ const Login = () => {
         setError(null); // Reset error state
 
         try {
-            const response = await axios.get(`http://localhost:8080/api/user/username/${username}`);
+            const response = await axios.get(`https://building-solution-app-fdd7139e9f3e.herokuapp.com/api/user/username/${username}`);
             const user = response.data;
 
             // Check if the password matches

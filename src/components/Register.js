@@ -18,7 +18,7 @@ const Register = () => {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/add", {
+            const response = await fetch("https://building-solution-app-fdd7139e9f3e.herokuapp.com/add", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
